@@ -36,12 +36,7 @@ public class Main {
                         break;
 
                     case "2":
-                        System.out.println("\nPopis drzava");
-                        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
-                        while(rs.next()){
-                            System.out.printf("%d %s\n", rs.getInt("IDDrzava"), rs.getString("Naziv"));
-                        }
-                        rs.close();
+                        IspisDrzava(stmt);
 
                         System.out.println("\nUnesite ID drzave za izmjenu");
                         int id=Integer.parseInt(reader.readLine());
@@ -53,12 +48,7 @@ public class Main {
                         break;
 
                     case "3":
-                        System.out.println("\nPopis drzava");
-                        ResultSet rs3 = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
-                        while(rs3.next()){
-                            System.out.printf("%d %s\n", rs3.getInt("IDDrzava"), rs3.getString("Naziv"));
-                        }
-                        rs3.close();
+                        IspisDrzava(stmt);
 
                         System.out.println("\nUnesite ID drzave za brisanje");
                         int id2 = Integer.parseInt(reader.readLine());
@@ -91,6 +81,15 @@ public class Main {
         catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    static void IspisDrzava(Statement stmt) throws SQLException {
+        System.out.println("\nPopis drzava");
+        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
+        while(rs.next()){
+            System.out.printf("%d %s\n", rs.getInt("IDDrzava"), rs.getString("Naziv"));
+        }
+        rs.close();
     }
 
     private static DataSource createDataSource() {
