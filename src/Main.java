@@ -85,7 +85,7 @@ public class Main {
 
     static void IspisDrzava(Statement stmt) throws SQLException {
         System.out.println("\nPopis drzava");
-        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
+        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava ORDER BY Naziv");
         while(rs.next()){
             System.out.printf("%d %s\n", rs.getInt("IDDrzava"), rs.getString("Naziv"));
         }
