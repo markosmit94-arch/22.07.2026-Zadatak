@@ -36,6 +36,13 @@ public class Main {
                         break;
 
                     case "2":
+                        System.out.println("\nPopis drzava");
+                        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
+                        while(rs.next()){
+                            System.out.printf("%d %s\n", rs.getInt("IDDrzava"), rs.getString("Naziv"));
+                        }
+                        rs.close();
+
                         System.out.println("\nUnesite ID drzave za izmjenu");
                         int id=Integer.parseInt(reader.readLine());
                         System.out.println("\nUnesite naziv drzave");
@@ -46,6 +53,13 @@ public class Main {
                         break;
 
                     case "3":
+                        System.out.println("\nPopis drzava");
+                        ResultSet rs3 = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava");
+                        while(rs3.next()){
+                            System.out.printf("%d %s\n", rs3.getInt("IDDrzava"), rs3.getString("Naziv"));
+                        }
+                        rs3.close();
+
                         System.out.println("\nUnesite ID drzave za brisanje");
                         int id2 = Integer.parseInt(reader.readLine());
                         String sql3="DELETE FROM Drzava WHERE IDDrzava = '"+id2+"'";
@@ -55,11 +69,11 @@ public class Main {
 
                     case "4":
                         System.out.println("\nPopis drzava sortiranih po nazivu:");
-                        ResultSet rs = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava ORDER BY Naziv");
-                        while (rs.next()) {
-                            System.out.printf("%d %s\n", rs.getInt("IDDrzava"), rs.getString("Naziv"));
+                        ResultSet rs2 = stmt.executeQuery("SELECT IDDrzava, Naziv FROM Drzava ORDER BY Naziv");
+                        while (rs2.next()) {
+                            System.out.printf("%d %s\n", rs2.getInt("IDDrzava"), rs2.getString("Naziv"));
                         }
-                        rs.close();
+                        rs2.close();
                         break;
 
                     case "5":
