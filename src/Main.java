@@ -98,7 +98,7 @@ public class Main {
         ds.setDatabaseName("AdventureWorksOBP");
         ds.setUser("sa");
         ds.setPassword("SQL");
-        ds.setEncrypt(false);
+        ds.setEncrypt("false");
         return ds;
     }
 }
